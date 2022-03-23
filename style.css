@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0.2rem;
+}
+body {
+  margin-top: 1rem;
+  width: 90%;
+  background-color: #93a5cf;
+}
+.container h1 {
+  margin-bottom: 2rem;
+  font-size: 3em;
+  text-decoration: underline;
+}
+.container h2 {
+  text-decoration: underline;
+}
+.red {
+  color: red;
+}
+.orange {
+  color: orange;
+}
+.yellow {
+  color: yellow;
+}
+.green {
+  color: green;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.profilePhoto img {
+  width: 25%;
+  height: 25%;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+/* #setTechID {
+  width: auto;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
+  border: none;
+} */
+.input,
+.hideInput {
+  display: block;
+  padding: 0.25rem;
+  width: 25%;
+}
+.input {
+  margin-bottom: 0.5rem;
+  background-color: rgb(188, 234, 235);
+}
+.hideInput {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
+  border: none;
+}
+#form1 {
+  position: absolute;
+  top: 5rem;
+  right: 15rem;
+  width: 40%;
+  font-weight: 600;
+}
+#form1 input {
+  display: block;
+  padding: 0.3rem 1rem;
+  margin: 0.2rem;
+  border-radius: 2rem;
+}
+.studentInfo {
+  margin-top: 2rem;
+  width: 70%;
+}
+#form1 label {
+  display: block;
+  width: auto;
+  margin-left: auto;
+  background: none;
+}
+#form1 fieldset {
+  margin: 1rem;
+}
+.student label,
+input {
+  margin-left: auto;
+  margin-right: auto;
+}
+.student input {
+  width: 60%;
+}
+.newStdBtn {
+  margin-top: 0.5rem;
+  border-radius: 2rem;
+  margin-left: 19rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem lightblue;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
+  border: none;
+  width: 20%;
+}
+.add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add button {
+  border-radius: 2rem;
+  box-shadow: 0.1rem 0.1rem 0.1rem lightblue;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
+  border: none;
+}
+legend {
+  background-color: powderblue;
+}
+.reg {
+  font-size: 1.1em;
+}
+
+#form1 input::placeholder {
+  color: rgb(79, 77, 77);
+}
+.validForm {
+  background-color: rgb(150, 240, 168);
+  border: 1rem solid rgb(2, 115, 43);
+}
+.invalidForm {
+  background-color: rgb(235, 123, 123);
+  border: 1rem solid rgb(220, 14, 14);
+}
+#att label input {
+  display: inline;
+  border: 0.2rem dashed yellow;
+}
+#format label input {
+  display: inline;
+  border: 0.2rem dashed rgb(252, 245, 41);
+}
+.deanList {
+  display: block;
+  width: 40%;
+  position: absolute;
+  top: 55rem;
+  right: 15rem;
+  text-align: center;
+  border: 0.1rem solid green;
+}
+.deanList h2 {
+  color: rgb(76, 32, 32);
+}
+.deanList h3 {
+  text-decoration: underline;
+  color: rgb(65, 3, 88);
+}
+.deanList ul li {
+  font-size: 1.3rem;
+  color: white;
+}
+.deanList ul {
+  list-style: none;
+}
+.auth {
+  text-decoration: none;
+}

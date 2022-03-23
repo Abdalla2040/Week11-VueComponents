@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Student Information</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="Divtemplate" type="x-template">
+      <div class="container">
+        <authheader class="auth" text="User Authentication:"
+          ><loginform></loginform
+        ></authheader>
+        <h1>{{ pageTitle }}</h1>
+        <h2>{{ sectionTitle }}</h2>
+
+        <div v-html="profilePhoto" class="profilePhoto"></div>
+        <div>
+          <form id="form1">
+            <fieldset
+              v-bind:class="{validForm: newStudent.valid, invalidForm: newStudent.invalid}"
+            >
+              <legend>ADD STUDENT</legend>
+              <div class="student">
+                <label
+                  >First Name:
+                  <input
+                    type="text"
+                    v-model="newStudent.firstName"
+                    placeholder="Enter student's first name"
+                /></label>
+                <label
+                  >Last Name:
+                  <input
+                    type="text"
+                    v-model="newStudent.lastName"
+                    placeholder="Enter student's last name"
+                /></label>
+                <label
+                  >Expected Graduation Year:
+                  <input
+                    type="text"
+                    v-model="newStudent.graduationYear"
+                    placeholder="e.g. 2023"
+                /></label>
+                <label
+                  >GPA:
+                  <input
+                    type="text"
+                    v-model="newStudent.gpa"
+                    placeholder="Enter student's current GPA"
+                /></label>
+              </div>
+              <fieldset
+                v-bind:class="{validForm: registration.valid, invalidForm: registration.invalid}"
+              >
+                <legend class="reg">Course Registration</legend>
+                <label
+                  >Course Number: <br />
+                  <select v-model="registration.courseNumber">
+                    <option value="CMSC1212">CMSC1212</option>
+                    <option value="CMSC1255">CMSC1255</option>
+                    <option value="CMSC1228">CMSC1228</option>
+                  </select></label
+                >
+                <label>
+                  Number of Credits: <br />
+                  <input
+                    type="number"
+                    v-model.number="registration.numOfCredits"
+                /></label>
+
+                Attendance Type: <br />
+                <div id="att">
+                  <label>
+                    <input
+                      type="radio"
+                      value="Face-To-Face"
+                      v-model="registration.attendanceType"
+                    />Face-To-Face
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="Synchronous Online"
+                      v-model="registration.attendanceType"
+                    />Synchronous Online
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="Asynchronous Online"
+                      v-model="registration.attendanceType"
+                    />Asynchronous Online
+                  </label>
+                </div>
+                <label>Book Format: <br /></label>
+                <div id="format">
+                  <label>
+                    <input
+                      type="checkbox"
+                      value="Physical"
+                      v-model="registration.bookFormat"
+                    />
+                    Physical
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      value="Digital"
+                      v-model="registration.bookFormat"
+                    />
+                    Digital
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      value="Audio"
+                      v-model="registration.bookFormat"
+                    />
+                    Audio
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  class="newStdBtn"
+                  v-on:click.prevent="register()"
+                >
+                  Register
+                </button>
+              </fieldset>
+            </fieldset>
+            <div class="add">
+              <button type="submit" v-on:click.prevent="setNewStudent()">
+                ADD
+              </button>
+              <button
+                class="add"
+                type="reset"
+                v-on:click.prevent="clearAllData()"
+              >
+                Clear Data
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="deanList">
+          <h2>Dean's List</h2>
+          <ul>
+            <h3>Name ----- GPA</h3>
+            <li v-for="deanList in deansListStudents">
+              {{deanList.firstName}}, {{deanList.lastName}} - {{deanList.gpa}}
+            </li>
+          </ul>
+          <h3>Total Students: {{deansListStudentsCount}}</h3>
+        </div>
+
+        <div
+          class="studentInfo"
+          v-for="(singleStudent, index) in student"
+          :key="singleStudent.firstName"
+        >
+          <p>First Name: {{ singleStudent.firstName }}</p>
+          <p>Last Name: {{ singleStudent.lastName }}</p>
+
+          <p v-show="singleStudent.graduationYear == 2023">
+            Expected Graduation Year: {{ singleStudent.graduationYear }}
+          </p>
+          <p v-if="singleStudent.gpa >= 3" v-bind:class="setGPAColor">
+            GPA: A - {{ singleStudent.gpa }}
+          </p>
+          <p v-else-if="singleStudent.gpa >= 2" v-bind:class="setGPAColor">
+            GPA: B - {{ singleStudent.gpa }}
+          </p>
+          <p v-else-if="singleStudent.gpa >= 1" v-bind:class="setGPAColor">
+            GPA: C - {{ singleStudent.gpa }}
+          </p>
+          <p v-else-if="singleStudent.gpa == 0" v-bind:class="setGPAColor">
+            GPA: D - {{ singleStudent.gpa }}
+          </p>
+          <p v-else v-bind:class="setGPAColor">
+            GPA: F - {{ singleStudent.gpa }}
+          </p>
+          <div v-for="register in newStudent.registrations">
+            <p>Course Number: {{register.courseNumber}}</p>
+            <p>Attendance Type: {{register.attendanceType}}</p>
+            <p>Number of Credits: {{register.numOfCredits}}</p>
+            <p v-for="reg in register.bookFormat">Book Format: {{ reg }}</p>
+          </div>
+          <div v-if="index < student.length-1"><hr /></div>
+        </div>
+        <p class="green" v-bind="updated">Updated On: {{ updated }}</p>
+      </div>
+    </template>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript" src="https://unpkg.com/vuex@2.0.0"></script>
+    <script type="text/javascript" src="Components.js"></script>
+    <script type="text/javascript" src="vue.js"></script>
+  </body>
+</html>
