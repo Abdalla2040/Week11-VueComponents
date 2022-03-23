@@ -1,3 +1,4 @@
+
 Vue.component("authheader", {
   props: {
     text: {
@@ -17,7 +18,7 @@ Vue.component("authheader", {
   template: `
     <div>
     <slot></slot>
-        <h1>{{text}}</h1>
+        <h3>{{text}}</h3>
         <p v-if="this.auth">{{username}} is authorized</p>
         <p v-else >You are not authorized!</p>
     </div>
@@ -64,7 +65,7 @@ Vue.component("loginform", {
             <legend>{{ legend }}</legend>
             <label>Username: <input type="text" v-model="username"></label><br>
             <label>Password: <input type="password" v-model="password"></label><br>
-            <button v-on:click.prevent="login()">Login</button>
+            <button v-on:click.prevent="login()">Log In</button>
         </fieldset>
     </form> 
     <form v-else>

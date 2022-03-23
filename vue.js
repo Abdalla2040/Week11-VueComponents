@@ -17,6 +17,7 @@ var store = new Vuex.Store({
   mutations: {
     setNewStudent: function (state, payload) {
       state.student.push(Object.assign({}, payload));
+      this.newStudent.registerations = [];
     },
     clearData: function (state) {
       state.student = [];
