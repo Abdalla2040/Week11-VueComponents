@@ -6,7 +6,7 @@
 body {
   margin-top: 1rem;
   width: 90%;
-  background-color: #93a5cf;
+  background-color: #7be0f7;
 }
 .container h1 {
   margin-bottom: 2rem;
@@ -65,7 +65,7 @@ body {
 }
 #form1 {
   position: absolute;
-  top: 5rem;
+  top: 1rem;
   right: 15rem;
   width: 40%;
   font-weight: 600;
@@ -100,7 +100,7 @@ input {
 .newStdBtn {
   margin-top: 0.5rem;
   border-radius: 2rem;
-  margin-left: 19rem;
+  margin-left: 13rem;
   box-shadow: 0.1rem 0.1rem 0.5rem lightblue;
   padding: 0.5rem;
   font-size: 1rem;
@@ -137,19 +137,11 @@ legend {
 }
 .validForm {
   background-color: rgb(150, 240, 168);
-  border: 1rem solid rgb(2, 115, 43);
+  border: 0.5rem solid rgb(2, 115, 43);
 }
 .invalidForm {
   background-color: rgb(235, 123, 123);
-  border: 1rem solid rgb(220, 14, 14);
-}
-#att label input {
-  display: inline;
-  border: 0.2rem dashed yellow;
-}
-#format label input {
-  display: inline;
-  border: 0.2rem dashed rgb(252, 245, 41);
+  border: 0.5rem solid rgb(220, 14, 14);
 }
 .deanList {
   display: block;
@@ -174,6 +166,39 @@ legend {
 .deanList ul {
   list-style: none;
 }
-.auth {
-  text-decoration: none;
+.auth p {
+  /* border: 1rem dashed yellow; */
+  width: 30%;
+}
+.loginform fieldset {
+  border: 0.2rem solid rgb(27, 142, 4);
+  border-radius: 30px;
+  padding: 1rem;
+  width: 30%;
+}
+.loginform input {
+  background-color: rgb(196, 227, 248);
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+}
+.loginform label {
+  font-weight: bold;
+}
+.loginform input[type="text"]:first-of-type {
+  /* background-color: blue; */
+  margin-left: 0.8rem;
+}
+.loginform button {
+  border-radius: 2rem;
+  box-shadow: 0.1rem 0.1rem 0.1rem rgb(225, 232, 235);
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
+  border: none;
+}
+.hr {
+  width: 40%;
 }

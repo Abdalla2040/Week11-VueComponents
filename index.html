@@ -12,7 +12,7 @@
     <template id="Divtemplate" type="x-template">
       <div class="container">
         <authheader class="auth" text="User Authentication:"
-          ><loginform></loginform
+          ><loginform class="loginform" legend="Sign In"></loginform
         ></authheader>
         <h1>{{ pageTitle }}</h1>
         <h2>{{ sectionTitle }}</h2>
@@ -184,13 +184,13 @@
           <p v-else v-bind:class="setGPAColor">
             GPA: F - {{ singleStudent.gpa }}
           </p>
-          <div v-for="register in newStudent.registrations">
+          <div v-for="register in singleStudent.registrations">
             <p>Course Number: {{register.courseNumber}}</p>
             <p>Attendance Type: {{register.attendanceType}}</p>
             <p>Number of Credits: {{register.numOfCredits}}</p>
             <p v-for="reg in register.bookFormat">Book Format: {{ reg }}</p>
           </div>
-          <div v-if="index < student.length-1"><hr /></div>
+          <div class="hr" v-if="index < student.length-1"><hr /></div>
         </div>
         <p class="green" v-bind="updated">Updated On: {{ updated }}</p>
       </div>

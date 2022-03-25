@@ -79,7 +79,7 @@ var app = new Vue({
     },
     setNewStudent: function () {
       store.commit("setNewStudent", this.newStudent);
-
+      this.newStudent.registrations = [];
       this.newStudent.firstName = "";
       this.newStudent.lastName = "";
       this.newStudent.graduationYear = "";
@@ -90,7 +90,6 @@ var app = new Vue({
     },
     register: function () {
       this.newStudent.registrations.push(Object.assign({}, this.registration));
-
       this.registration.courseNumber = "";
       this.registration.numOfCredits = "";
       this.registration.attendanceType = "";

@@ -17,7 +17,7 @@ Vue.component("authheader", {
   template: `
     <div>
     <slot></slot>
-        <h1>{{text}}</h1>
+        <h3>{{text}}</h3>
         <p v-if="this.auth">{{username}} is authorized</p>
         <p v-else >You are not authorized!</p>
     </div>
